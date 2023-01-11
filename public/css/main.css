@@ -65,19 +65,44 @@ body {
 }
 
 .header-title {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 1.324rem + 0.751vw, 2rem);
 }
-
 .card .price {
-  font-size: min(4.4rem, 25vw);
+  font-size: 4rem;
+}
+@media (min-width: 600px) {
+  .card .price {
+    font-size: clamp(2rem, 1.286rem + 1.905vw, 3rem);
+  }
+}
+.card .dollar {
+  font-size: 2.2rem;
 }
 .card-type {
-  font-size: min(1.4rem, 8vw);
+  font-size: 1.35rem;
+}
+@media (min-width: 600px) {
+  .card-type {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 600px) {
+  .card .feature {
+    font-size: 0.7rem;
+  }
+}
+@media (min-width: 600px) {
+  .card .btn {
+    font-size: 0.7rem;
+  }
 }
 
 .outer-container {
-  display: grid;
-  padding: clamp(1.5rem, 0.268rem + 5.258vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.5rem, 0.972rem + 2.254vw, 3rem);
+  gap: 2rem;
+  height: 100vh;
 }
 
 .header {
@@ -90,6 +115,14 @@ body {
   display: grid;
   gap: 2rem;
 }
+@media (min-width: 600px) {
+  .cards-container {
+    grid-template-columns: repeat(3, minmax(10rem, 21rem));
+    margin: 0 auto;
+    grid-template-rows: 1.5rem 1fr 1.5rem;
+    gap: 0;
+  }
+}
 .cards-container .card {
   display: flex;
   gap: 1rem;
@@ -98,6 +131,12 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+@media (min-width: 600px) {
+  .cards-container .card {
+    gap: 0.5em;
+    border-radius: 8px;
+  }
 }
 .cards-container .card .features {
   display: grid;
@@ -113,6 +152,24 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+@media (min-width: 600px) {
+  .cards-container .basic {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+}
+@media (min-width: 600px) {
+  .cards-container .professional {
+    grid-column: 2/3;
+    grid-row: 1/4;
+  }
+}
+@media (min-width: 600px) {
+  .cards-container .master {
+    grid-column: 3/4;
+    grid-row: 2/3;
+  }
+}
 
 header {
   color: hsl(233deg, 13%, 49%);
@@ -127,16 +184,14 @@ header {
 }
 .cards-container .card .price {
   color: hsl(232deg, 13%, 33%);
-  position: relative;
   margin: 0 auto;
 }
-.cards-container .card .price:before {
-  content: "$";
-  font-size: 2.4rem;
-  position: absolute;
-  left: -15%;
-  top: 25%;
-  bottom: 25%;
+.cards-container .card .flex-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  color: hsl(232deg, 13%, 33%);
 }
 .cards-container .card .features {
   display: grid;
@@ -165,32 +220,32 @@ header {
   opacity: 0.5;
 }
 .cards-container .card .btn {
+  background: -webkit-linear-gradient(to right, hsl(236deg, 72%, 79%), hsl(237deg, 63%, 64%));
+  background: -moz-linear-gradient(to right, hsl(236deg, 72%, 79%), hsl(237deg, 63%, 64%));
+  background: -o-linear-gradient(to right, hsl(236deg, 72%, 79%), hsl(237deg, 63%, 64%));
+  background: linear-gradient(to right, hsl(236deg, 72%, 79%), hsl(237deg, 63%, 64%));
   border: none;
   border-radius: 5px;
   color: hsl(240deg, 78%, 98%);
+}
+.cards-container .card.professional {
   background: -webkit-linear-gradient(to right, hsl(236deg, 72%, 79%), hsl(237deg, 63%, 64%));
   background: -moz-linear-gradient(to right, hsl(236deg, 72%, 79%), hsl(237deg, 63%, 64%));
   background: -o-linear-gradient(to right, hsl(236deg, 72%, 79%), hsl(237deg, 63%, 64%));
   background: linear-gradient(to right, hsl(236deg, 72%, 79%), hsl(237deg, 63%, 64%));
 }
-.cards-container .professional {
-  background: -webkit-linear-gradient(to right, hsl(236deg, 72%, 79%), hsl(237deg, 63%, 64%));
-  background: -moz-linear-gradient(to right, hsl(236deg, 72%, 79%), hsl(237deg, 63%, 64%));
-  background: -o-linear-gradient(to right, hsl(236deg, 72%, 79%), hsl(237deg, 63%, 64%));
-  background: linear-gradient(to right, hsl(236deg, 72%, 79%), hsl(237deg, 63%, 64%));
-}
-.cards-container .professional > .price, .cards-container .professional * {
+.cards-container .card.professional > .price, .cards-container .card.professional * {
   color: hsl(240deg, 78%, 98%);
 }
-.cards-container .professional .btn {
+.cards-container .card.professional .btn {
   background: hsl(240deg, 78%, 98%);
   color: hsl(233deg, 13%, 49%);
 }
-.cards-container .professional .feature::after, .cards-container .professional .feature::before {
+.cards-container .card.professional .feature::after, .cards-container .card.professional .feature::before {
   background-color: hsl(240deg, 78%, 98%) !important;
 }
 
-.outer-container {
+body {
   background-position: 60vw 0%, bottom left;
   background-image: url("../images/bg-top.svg");
   background-repeat: no-repeat;
@@ -198,9 +253,15 @@ header {
   background-color: hsl(240deg, 78%, 98%);
 }
 @media (min-width: 600px) {
-  .outer-container {
+  body {
     background-image: url("../images/bg-top.svg"), url("../images/bg-bottom.svg");
+    background-position: 100% 0%, 0% 100%;
+    background-size: 25vw, 28vw;
+    background-repeat: no-repeat, no-repeat;
   }
+}
+body .attribution {
+  margin-top: 4.5rem;
 }
 
 .switcher-label {

@@ -1,0 +1,64 @@
+@use '../abstracts/mixins' as *;
+
+.cards-container {
+    @include respond-to(medium){
+        grid-template-columns: repeat(3, minmax(10rem, 21rem));
+        margin: 0 auto;
+        grid-template-rows: 1.5rem 1fr 1.5rem;
+        gap:0;
+    }
+    
+    display: grid;
+    gap:2rem;
+    .card {
+        @include respond-to(medium){
+            gap: .5em;
+            border-radius: 8px;
+        }
+        display: flex;
+        gap:1rem;
+        border-radius: 15px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        .features {
+            display:grid;
+            align-self: stretch;
+            margin: 1rem 0;
+            .feature {
+                padding: 1rem;
+            }
+        }
+        .btn {
+
+            width: 100%;
+            padding: .7rem;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+        }
+        
+    }
+    
+    .basic {
+        @include respond-to(medium){
+            grid-column: 1/2 ;
+            grid-row: 2/3 ;
+        }
+    }
+    .professional {
+        @include respond-to(medium){
+            grid-column: 2/3;
+            grid-row: 1/4;
+        }
+    }
+    .master {
+        @include respond-to(medium){
+            grid-column: 3/4;
+            grid-row: 2/3;
+        }
+    }
+
+   
+}

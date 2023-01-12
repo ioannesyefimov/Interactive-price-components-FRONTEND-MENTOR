@@ -1,0 +1,26 @@
+@use './variables' as *;
+
+@mixin gradient($direction, $list...) { 
+    background: -webkit-linear-gradient($direction, $list);
+    background: -moz-linear-gradient($direction, $list);
+    background: -o-linear-gradient($direction, $list);
+    background: linear-gradient($direction, $list);  
+}
+
+@mixin respond-to($breakpoint) {
+    $raw-query: map-get($breakpoints, $breakpoint);
+    
+    @if $raw-query {
+        $query: if(
+            type-of($raw-query) == 'string',
+            unquoute($raw-query),
+            inspect($raw-query)
+        );
+
+        @media #{$query}{
+             @content;
+        }
+    } @else {
+        @error 'No value found for `#{$breakpoint}`. ' + 'Please make sure it is defined in `#{$breakpoints}` map.'
+    }
+}

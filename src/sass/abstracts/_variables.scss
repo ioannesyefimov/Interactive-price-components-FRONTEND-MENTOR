@@ -1,0 +1,20 @@
+$clr-primary-g1: hsl(236, 72%, 79%), hsl(237, 63%, 64%);
+
+$clr-n-vlg-blue: hsl(240, 78%, 98%);
+$clr-n-white: hsl(0, 0%, 100%);
+$clr-n-lg-blue: hsl(234, 14%, 74%);
+$clr-n-g-blue: hsl(233, 13%, 49%);
+$clr-n-dg-blue: hsl(232, 13%, 33%);
+
+
+$pd-main: clamp(1.5rem, 0.972rem + 2.254vw, 3rem);
+
+
+$breakpoints: (
+    'medium': (min-width:600px),
+    'large': (min-width:1000px),
+    'huge': (min-width:1200px),
+);
+
+
+

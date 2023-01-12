@@ -1,0 +1,13 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+
+.error {
+    color: red !important;
+    outline: red 0.2px solid;
+    box-shadow:0px 0px 5px blue;
+    font-size: 1rem !important;
+    font-weight: weights(bold);
+
+
+}

@@ -1,0 +1,14 @@
+@use '../abstracts/variables' as *;
+
+body {
+
+}
+.outer-container{
+    display: flex;
+    flex-direction: column;
+    padding: $pd-main;
+    gap:2rem;
+    height: 100vh;
+
+
+}

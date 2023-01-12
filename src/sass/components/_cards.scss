@@ -1,0 +1,103 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.cards-container{
+    
+    .card{
+        color: $clr-n-g-blue;
+        background-color: $clr-n-white;
+        // max-width: 80%;
+        position: relative;
+        
+        
+        padding: 2rem ;
+        .price {
+            color: $clr-n-dg-blue;
+            margin: 0 auto;
+        }
+        .flex-group  {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap:.3rem;
+            color: $clr-n-dg-blue;
+
+            
+        }
+        .features{
+           
+            display: grid;
+            .feature {
+                position: relative;
+                &::before  {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    left: 0;
+                    top:0%;
+                    opacity: .5;
+                    height: 1px;
+                    background-color: $clr-n-g-blue;
+                }
+
+                &:last-child::after{
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    left: 0;
+                    bottom: 0%;
+                    
+                    height: 1px;
+                    background-color: $clr-n-g-blue;
+                    opacity: .5;
+                }
+            }
+        }   
+        .btn{
+            
+            @include gradient(to right, $clr-primary-g1);
+            border: none;
+            border-radius: 5px;
+            color: $clr-n-vlg-blue;
+            a {
+                text-decoration: none;
+                color: $clr-n-vlg-blue;
+            }
+            &:hover {
+                background: transparent;
+                border: 1px $clr-n-g-blue solid;
+
+                cursor: pointer;
+                a{
+                    color: $clr-n-g-blue
+
+                }
+            }
+
+        }
+    
+    }
+    .card.professional {
+        @include gradient(to right , $clr-primary-g1);
+        & > .price, * {
+            color: $clr-n-vlg-blue
+        }   
+        .btn {
+            background: $clr-n-vlg-blue;
+            a{
+                color: $clr-n-g-blue;
+            }
+            &:hover {
+                background: transparent;
+                border: 1px $clr-n-vlg-blue solid;
+                a {
+                    color: $clr-n-vlg-blue
+                }
+
+            }
+        }   
+        .feature::after, .feature::before{
+            background-color: $clr-n-vlg-blue !important;
+        }
+    }
+}

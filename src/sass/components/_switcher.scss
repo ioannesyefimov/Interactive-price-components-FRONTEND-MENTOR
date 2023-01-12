@@ -1,0 +1,52 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.switcher-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap:1rem;
+    
+
+    .switcher{
+        appearance: none;
+        width: 3.5em;
+        height: 2em;
+        border-radius: 20px;
+        background-color: $clr-n-lg-blue;
+        position: relative;
+        &::before {
+            position: absolute;
+            content: '';
+            width: 23px;
+            height: 23px;
+            border-radius: 50%;
+            left: 8%;
+            top:10%;
+            background-color: $clr-n-vlg-blue;
+        }
+
+        &[data-period='monthly']{
+            &:before{
+            transition: .4s ease-in-out;
+            transform: translateX(90%);
+            }
+            @include gradient(to right, $clr-primary-g1)
+        } 
+        &[data-period='yearly']{
+            &:before{
+            transition: .4s ease-in-out;
+            transform: translateX(0%);
+            }
+            @include gradient(to right, $clr-primary-g1)
+        }   
+        &[data-period='false']{
+            &:before{
+            transition: .4s ease-in-out;
+            transform: translateX(45%);
+            }
+            
+        } 
+    }
+}

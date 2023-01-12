@@ -1,0 +1,20 @@
+@use "../abstracts/variables" as *;
+@use '../abstracts/mixins' as *;
+
+body{
+    @include respond-to(medium){
+        background-image: url('../images/bg-top.svg'), url('../images/bg-bottom.svg');
+        background-position: 100% 0%, 0% 100%;
+        background-size: 25vw, 28vw;
+        background-repeat: no-repeat, no-repeat;
+    };    
+    background-position: 60vw 0%, bottom left;
+    background-image: url('../images/bg-top.svg');
+    background-repeat: no-repeat;
+    background-size:80%;
+    background-color: $clr-n-vlg-blue;
+
+    .attribution {
+        margin-top: 4.5rem;
+    }
+}

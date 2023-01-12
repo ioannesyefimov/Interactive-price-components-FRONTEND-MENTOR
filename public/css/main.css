@@ -148,7 +148,7 @@ body {
 }
 .cards-container .card .btn {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -228,6 +228,18 @@ header {
   border-radius: 5px;
   color: hsl(240deg, 78%, 98%);
 }
+.cards-container .card .btn a {
+  text-decoration: none;
+  color: hsl(240deg, 78%, 98%);
+}
+.cards-container .card .btn:hover {
+  background: transparent;
+  border: 1px hsl(233deg, 13%, 49%) solid;
+  cursor: pointer;
+}
+.cards-container .card .btn:hover a {
+  color: hsl(233deg, 13%, 49%);
+}
 .cards-container .card.professional {
   background: -webkit-linear-gradient(to right, hsl(236deg, 72%, 79%), hsl(237deg, 63%, 64%));
   background: -moz-linear-gradient(to right, hsl(236deg, 72%, 79%), hsl(237deg, 63%, 64%));
@@ -239,7 +251,16 @@ header {
 }
 .cards-container .card.professional .btn {
   background: hsl(240deg, 78%, 98%);
+}
+.cards-container .card.professional .btn a {
   color: hsl(233deg, 13%, 49%);
+}
+.cards-container .card.professional .btn:hover {
+  background: transparent;
+  border: 1px hsl(240deg, 78%, 98%) solid;
+}
+.cards-container .card.professional .btn:hover a {
+  color: hsl(240deg, 78%, 98%);
 }
 .cards-container .card.professional .feature::after, .cards-container .card.professional .feature::before {
   background-color: hsl(240deg, 78%, 98%) !important;
@@ -268,6 +289,7 @@ body .attribution {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
   gap: 1rem;
 }
 .switcher-label .switcher {
@@ -311,4 +333,15 @@ body .attribution {
 .switcher-label .switcher[data-period=false]:before {
   transition: 0.4s ease-in-out;
   transform: translateX(45%);
+}
+
+.error {
+  outline: 1px solid red;
+  box-shadow: 0px 5px 10px rgb(255, 0, 0);
+}
+
+.error-message {
+  font-size: 1rem;
+  font-weight: weights(bold);
+  color: red !important;
 }
